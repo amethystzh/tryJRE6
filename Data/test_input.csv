@@ -1,0 +1,5 @@
+name,gender,age,mobile,address,returnCode,returnMsg
+zhangsan,M,38,13811112222,Haidian,0,TRUE
+lisi,F,24,18633335555,chaoyang,0,TRUE
+wangwu,M,31,13022229999,tongzhou,1,FALSE
+wuliu,M,22,13333333333,wuhan,0,TRUE

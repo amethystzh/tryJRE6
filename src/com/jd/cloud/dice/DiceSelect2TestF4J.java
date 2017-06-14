@@ -32,6 +32,7 @@ public class DiceSelect2TestF4J {
 		log.info("returnCode: "+returnCode);
 		
 		assertEquals(errorCode, returnCode);
+		
 
 	}
 

@@ -49,6 +49,13 @@ public class DiceSelect2Test {
 		assertEquals(-1, ds.setCandidates(null, null));
 		
 		ds.getCandidates();
+		
+		String a = "jingdong";
+		String b = "jing";
+		String c = "dong";
+		String d = b+c;
+		assertEquals(a,d);
+
 	}
 
 }

@@ -10,12 +10,12 @@ public class ParallelArrays {
          
         Arrays.parallelSetAll( arrayOfLong, 
             index -> ThreadLocalRandom.current().nextInt( 1000000 ) );
-        Arrays.stream( arrayOfLong ).limit( 50 ).forEach( 
+        Arrays.stream( arrayOfLong ).limit( 30 ).forEach( 
             i -> System.out.print( i + " " ) );
         System.out.println();
          
         Arrays.parallelSort( arrayOfLong );     
-        Arrays.stream( arrayOfLong ).limit( 50 ).forEach( 
+        Arrays.stream( arrayOfLong ).limit( 30 ).forEach( 
             i -> System.out.print( i + " " ) );
         System.out.println();
     }

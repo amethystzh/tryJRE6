@@ -72,18 +72,18 @@ public class Base64Tests {
 		 System.out.println(output);
 		 assertEquals(text, output);
 
-//		 String s = "cbzhan@gmail.com";
-//		 byte[] ab = s.getBytes();
-//		 encodedJava8 = encoder.encode(ab);		 
-//		 String temp = new String(encodedJava8);
-//		 System.out.println("Java8 encoded: "+temp);
-//		 
-//		 byte[] ac = decoder.decode(encodedJava8);
-//		 String temp2 = new String(ac);
-//		 System.out.println("Java8 decoder: "+temp2);
-//		 System.out.println("s="+s+", temp2="+temp2);
-//		 if (s.equals(temp2)){System.out.println("==");} else {System.out.println("!=");}
-//		 assertEquals("not equals", s, temp2); 
+		 String s = "cbzhan@gmail.com";
+		 byte[] ab = s.getBytes();
+		 encodedJava8 = encoder.encode(ab);		 
+		 String temp = new String(encodedJava8);
+		 System.out.println("Java8 encoded: "+temp);
+		 
+		 byte[] ac = decoder.decode(encodedJava8);
+		 String temp2 = new String(ac);
+		 System.out.println("Java8 decoder: "+temp2);
+		 System.out.println("s="+s+", temp2="+temp2);
+		 if (s.equals(temp2)){System.out.println("==");} else {System.out.println("!=");}
+		 assertEquals("not equals", s, temp2); 
 	 }
 
 	 @AfterClass

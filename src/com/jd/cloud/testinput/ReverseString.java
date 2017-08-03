@@ -6,12 +6,12 @@ public class ReverseString {
 	
 	static public Logger log =  Logger.getLogger(ReverseString.class);
 	
-	public static void reverseString(String str) {
+	public static String reverseString(String str) {
 		String initString = str;
 		
 		if (initString == null || initString.isEmpty()) {
 			log.info("the input string has nothing to format");
-			return;
+			return null;
 		}
 		
 		StringBuffer sb = new StringBuffer();
@@ -33,6 +33,8 @@ public class ReverseString {
 		
 		log.info("the init  string is: "+initString);
 		log.info("the dealt string is: "+sbFinal);
+		
+		return sbFinal.toString();
 		
 	}
 	

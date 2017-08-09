@@ -2,9 +2,9 @@ package com.jd.cloud.testinput;
 
 import org.apache.log4j.Logger;
 
-public class ReverseString {
+public class ReverseSpaceStrings {
 	
-	static public Logger log =  Logger.getLogger(ReverseString.class);
+	static public Logger log =  Logger.getLogger(ReverseSpaceStrings.class);
 	
 	public static String reverseString(String str) {
 		String initString = str;

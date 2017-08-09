@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ReverseStringTest {
+public class ReverseSpaceStringsTest {
 	
-	ReverseString rs = new ReverseString();
+	ReverseSpaceStrings rs = new ReverseSpaceStrings();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

@@ -21,10 +21,10 @@ public class ReorderList {
 	 * }
 	 */
 	
-    public static void reorderList(ListNode head) {
+    public static ListNode reorderList1(ListNode head) {
     	
     	if ( head == null || head.next == null ) {
-    		return;
+    		return head;
     	}
     	
     	ArrayList <Integer> ali = new ArrayList<Integer>();
@@ -47,8 +47,31 @@ public class ReorderList {
     		array[size-1] = ali.get(size/2);
     	} 
     	head = buildListNode(array);
-		printListNode(head);    	
-        
+    	return head;
+
+    }
+    
+    public static void reorderList(ListNode head) {
+    	
+    	if (head == null || head.next == null ) {
+    		return;
+    	}
+    	
+    	ListNode pos=head.next;
+//    	ListNode tail = pos;
+    	ListNode leftTail = head;
+//    	ListNode temp = null;
+    	
+    	while (pos.next != null ) {
+    		leftTail = pos;
+    		pos = leftTail.next;
+    	}
+//    	tail = pos;
+    	pos = head.next;
+    	
+    	while (pos.next != null ) {
+    		
+    	}
     }
     
     private static ListNode buildListNode(int[] array) {
@@ -96,16 +119,19 @@ public class ReorderList {
 
 	public static void main(String[] args) {
 		
-//		int[] array = {1,2,3,4,5,6,7};
+
 //		int[] array = {};
 //		int[] array = {1};
-		int[] array = {1,2,3};
+//		int[] array = {1,2};
+//		int[] array = {1,2,3};
+//		int[] array = {1,2,3,4};
+		int[] array = {1,2,3,4,5,6,7};
 		
 		ListNode head = buildListNode(array);
 		
 		printListNode(head);
-		
-		reorderList(head);
+		head=reorderList1(head);
+		printListNode(head);
 
 	}
 

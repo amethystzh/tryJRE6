@@ -53,25 +53,67 @@ public class ReorderList {
     
     public static void reorderList(ListNode head) {
     	
-    	if (head == null || head.next == null ) {
+    	if (head == null || head.next == null || head.next.next==null ) { // list with 0, 1, 2 node all return as it is
     		return;
     	}
     	
-    	ListNode pos=head.next;
-//    	ListNode tail = pos;
-    	ListNode leftTail = head;
-//    	ListNode temp = null;
+    	ListNode pos=head;
+    	ListNode temp = pos.next;
+    	ListNode beforeTail = getBeforeTailNode(pos);
     	
-    	while (pos.next != null ) {
-    		leftTail = pos;
-    		pos = leftTail.next;
-    	}
-//    	tail = pos;
-    	pos = head.next;
-    	
-    	while (pos.next != null ) {
+    	do {
     		
+//    		System.out.println("0: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next="+beforeTail.next.val+", temp="+temp.val);
+    		
+    		pos.next = beforeTail.next;
+    		
+//    		System.out.println("1: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next="+beforeTail.next.val+", temp="+temp.val);
+    		
+    		beforeTail.next.next = temp;
+    		
+//    		System.out.println("2: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next="+beforeTail.next.val+", temp="+temp.val);
+    		
+    		
+    		beforeTail.next = null;
+    		
+//    		System.out.println("3: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next=null, temp="+temp.val);
+    		
+    		pos = temp;
+    		
+    		if ( pos.next != null ) {
+    			temp = pos.next;
+//    			System.out.println("4: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next=null, temp="+temp.val);
+    		}
+    		else {
+//    			System.out.println("4: pos.next=null");
+    		}
+    		
+    		
+    		
+    		
+    		beforeTail = getBeforeTailNode(pos);
+    		
+//    		System.out.println("5: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next="+beforeTail.next.val+", temp="+temp.val);
+
+//    		printListNode(head);
+    	} while ( pos.next != null && beforeTail.next != temp );
+    	
+    	head=pos;
+
+    }
+    
+    public static ListNode getBeforeTailNode(ListNode head) {
+    	
+    	if (head == null || head.next == null) return null;
+    	
+    	if (head.next.next == null ) return head; 
+    		
+    	ListNode beforeTail = head.next;
+    	
+    	while (beforeTail.next.next != null) {
+    		beforeTail = beforeTail.next;
     	}
+    	return beforeTail;
     }
     
     private static ListNode buildListNode(int[] array) {
@@ -125,12 +167,16 @@ public class ReorderList {
 //		int[] array = {1,2};
 //		int[] array = {1,2,3};
 //		int[] array = {1,2,3,4};
-		int[] array = {1,2,3,4,5,6,7};
+//		int[] array = {1,2,3,4,5};
+//		int[] array = {1,2,3,4,5,6};
+//		int[] array = {1,2,3,4,5,6,7};
+		int[] array = {1,2,3,4,5,6,7,8};
 		
 		ListNode head = buildListNode(array);
 		
 		printListNode(head);
-		head=reorderList1(head);
+//		head=reorderList1(head);
+		reorderList(head);
 		printListNode(head);
 
 	}

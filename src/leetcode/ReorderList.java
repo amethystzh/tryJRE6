@@ -102,6 +102,44 @@ public class ReorderList {
 
     }
     
+    public static void reorderList2(ListNode head) {
+        //Tricky part is hard to trace tail and then tail.prev
+        //solution: reverse the back half so we can iterater from tail -> tail.next
+        
+        //find mid 
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        //reverse the part after mid
+        ListNode cur = slow.next;
+        while(cur != null && cur.next != null){
+            ListNode tempN = cur.next;
+            cur.next = tempN.next;
+            tempN.next = slow.next;
+            slow.next = tempN;
+        }
+
+        //relink 
+        ListNode iter1 = head;       //head
+        ListNode iter2 = slow.next;  //head of reversed part
+        slow.next = null;            //break 2 lists to avoid cycle
+        while(iter1 != null && iter2 != null){
+            ListNode next1 = iter1.next;
+            ListNode next2 = iter2.next;
+            iter1.next = iter2;
+            iter2.next = next1;
+            iter1 = next1;
+            iter2 = next2;
+        }
+        
+    }
+    
     public static ListNode getBeforeTailNode(ListNode head) {
     	
     	if (head == null || head.next == null) return null;

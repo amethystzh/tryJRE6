@@ -1,18 +1,16 @@
 package com.jd.cloud.testinput;
 
-import java.math.*;
-
 public class AtoI {
 	
 	private String inputStr;
 	private int outputInt;
 	private boolean invalidSign;
 	
-	public void setStr(String str){
+	void setStr(String str){
 		inputStr = str;
 	}
 	
-	public String getStr(){
+	private String getStr(){
 		return inputStr;
 	}
 	
@@ -24,15 +22,15 @@ public class AtoI {
 		return outputInt;
 	}
 	
-	public void setInvalidSign(boolean sign) {
+	private void setInvalidSign(boolean sign) {
 		invalidSign = sign;
 	}
 	
-	public boolean getInvalidSign(){
+	boolean getInvalidSign(){
 		return invalidSign;
 	}
 	
-	public void atoi(){
+	void atoi(){
 
 		String str = getStr();
 		setInvalidSign(false);
@@ -49,7 +47,7 @@ public class AtoI {
 		str = str.replace(" ", "");
 		
 		if (str.charAt(0)=='+') {
-			sign = 1;
+//			sign = 1;
 			str = str.substring(1);
 		}
 			
@@ -94,8 +92,8 @@ public class AtoI {
 		
 	}
 	
-	public static int ctoi(char ch){
-		int result = -1;
+	private static int ctoi(char ch){
+		int result;
 		switch(ch){
 		case 48:
 			result = 0;

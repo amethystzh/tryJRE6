@@ -4,12 +4,11 @@ import org.apache.log4j.Logger;
 
 public class ReverseSpaceStrings {
 	
-	static public Logger log =  Logger.getLogger(ReverseSpaceStrings.class);
+	private static Logger log =  Logger.getLogger(ReverseSpaceStrings.class);
 	
-	public static String reverseString(String str) {
-		String initString = str;
-		
-		if (initString == null || initString.isEmpty()) {
+	static String reverseString(String str) {
+
+		if (str == null || str.isEmpty()) {
 			log.info("the input string has nothing to format");
 			return null;
 		}
@@ -17,11 +16,11 @@ public class ReverseSpaceStrings {
 		StringBuffer sb = new StringBuffer();
 		StringBuffer sbFinal = new StringBuffer();
 		
-		int initStringLength = initString.length();
+		int initStringLength = str.length();
 		
 		for (int i=0; i<initStringLength; i++) {
-			if (initString.charAt(i) != ' ') {
-				sb.insert(0, initString.charAt(i));
+			if (str.charAt(i) != ' ') {
+				sb.insert(0, str.charAt(i));
 			}
 			else {
 				sb.append(' ');
@@ -31,7 +30,7 @@ public class ReverseSpaceStrings {
 		}
 		sbFinal.append(sb);
 		
-		log.info("the init  string is: "+initString);
+		log.info("the init  string is: "+ str);
 		log.info("the dealt string is: "+sbFinal);
 		
 		return sbFinal.toString();

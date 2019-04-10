@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import javax.validation.constraints.Null;
+
 public class ReverseSpaceStringsTest {
 	
 	ReverseSpaceStrings rs = new ReverseSpaceStrings();
@@ -33,7 +35,27 @@ public class ReverseSpaceStringsTest {
 		String s = "abcdefg";
 		String r = rs.reverseString(s);
 		assertEquals(r, "gfedcba");
-		
+	}
+
+	@Test
+	public void test1() {
+		String s = "123456";
+		String r = rs.reverseString(s);
+		assertEquals(r, "654321");
+	}
+
+	@Test
+	public void test2() {
+		String s = "~!@#$%^";
+		String r = rs.reverseString(s);
+		assertEquals(r, "^%$#@!~");
+	}
+
+	@Test
+	public void test3() {
+		String s = "";
+		String r = rs.reverseString(s);
+		assertEquals(r, null);
 	}
 
 }

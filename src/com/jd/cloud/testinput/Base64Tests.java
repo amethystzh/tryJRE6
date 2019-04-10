@@ -64,10 +64,10 @@ public class Base64Tests {
 		 
 		 final String text = "zhanchibing";
 		 final byte[] textByte = text.getBytes("UTF-8");
-		 //±àÂë
+
 		 final String encodedText = encoder.encodeToString(textByte);
 		 System.out.println(encodedText);
-		 //½âÂë
+
 		 String output = new String(decoder.decode(encodedText),"UTF-8");
 		 System.out.println(output);
 		 assertEquals(text, output);

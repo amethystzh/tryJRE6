@@ -7,7 +7,7 @@ package leetcode;
 //Example:
 //Given s = "hello", return "olleh".
 public class ReverseString {
-    public static String reverseString(String s) {
+    private static String reverseString(String s) {
         
         // if the string is null or empty																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													q	
 		if ( s == null || s.isEmpty()) {

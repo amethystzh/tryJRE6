@@ -48,7 +48,7 @@ public class LongestSubString {
     }
 	
 	
-	public static int lengthOfLongestSubstring(String s) {
+	private static int lengthOfLongestSubstring(String s) {
 		
 		if ( s==null || s.isEmpty() ) {
 			return 0;
@@ -60,7 +60,7 @@ public class LongestSubString {
 		
 		int result=1;
 		
-		HashSet<Character> hs = new HashSet<Character>();
+		HashSet<Character> hs = new HashSet<>();
 		
 		for (int i = 0; i < s.length()-1; i++ ) {
 			hs.add(s.charAt(i));

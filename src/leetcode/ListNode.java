@@ -1,7 +1,7 @@
 package leetcode;
 
 // single linked list
-public class ListNode {
+class ListNode {
 	
 	int val;
 	ListNode next;

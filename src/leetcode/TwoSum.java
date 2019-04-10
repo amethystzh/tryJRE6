@@ -170,10 +170,10 @@ public class TwoSum {
 				s++;
 //				System.out.println(" , !null, save to array["+(s-1)+"]");
 			}
-			else {
+//			else {
 				// do nothing
 //				System.out.println(" , null, do not save");
-			}
+//			}
 		}
 		// the significant array:
 		printArray(arrayInt);

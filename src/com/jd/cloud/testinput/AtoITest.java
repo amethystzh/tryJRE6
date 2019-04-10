@@ -10,26 +10,26 @@ import org.junit.Test;
 
 public class AtoITest {
 	
-	public static int result;
+	private static int result;
 	
-	public static void printResult() {
+	private static void printResult() {
 	}
 
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUpBeforeClass() {
 		printResult();
 	}
 
 	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	public static void tearDownAfterClass() {
 	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 	}
 
 	@Test
@@ -91,7 +91,7 @@ public class AtoITest {
 		AtoI o = new AtoI();
 		o.setStr("str");
 		o.atoi();
-		assertEquals(o.getInvalidSign(), true);
+		assertTrue(o.getInvalidSign());
 	}
 	
 	@Test
@@ -99,7 +99,7 @@ public class AtoITest {
 		AtoI o = new AtoI();
 		o.setStr(null);
 		o.atoi();
-		assertEquals(o.getInvalidSign(), true);
+		assertTrue(o.getInvalidSign());
 	}
 	
 	@Test
@@ -107,7 +107,7 @@ public class AtoITest {
 		AtoI o = new AtoI();
 		o.setStr("");
 		o.atoi();
-		assertEquals(o.getInvalidSign(), true);
+		assertTrue(o.getInvalidSign());
 	}
 	
 	@Test
@@ -115,7 +115,7 @@ public class AtoITest {
 		AtoI o = new AtoI();
 		o.setStr("123a56");
 		o.atoi();
-		assertEquals(o.getInvalidSign(), true);
+		assertTrue(o.getInvalidSign());
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ public class AtoITest {
 		o.setStr("0000 0000");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), false);
+		assertFalse(o.getInvalidSign());
 		assertEquals(0, result);
 	}
 	
@@ -134,7 +134,7 @@ public class AtoITest {
 		o.setStr("2147483647");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), false);
+		assertFalse(o.getInvalidSign());
 		assertEquals(2147483647, result);
 	}
 	
@@ -144,7 +144,7 @@ public class AtoITest {
 		o.setStr("21474836471");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), true);
+		assertTrue(o.getInvalidSign());
 	}
 	
 	@Test
@@ -153,7 +153,7 @@ public class AtoITest {
 		o.setStr(" 2147 483 647");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), false);
+		assertFalse(o.getInvalidSign());
 		assertEquals(2147483647, result);
 	}
 	
@@ -163,7 +163,7 @@ public class AtoITest {
 		o.setStr("2147483648");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), true);
+		assertTrue(o.getInvalidSign());
 	}
 	
 	@Test
@@ -172,7 +172,7 @@ public class AtoITest {
 		o.setStr("-2147483647");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), false);
+		assertFalse(o.getInvalidSign());
 		assertEquals(-2147483647, result);
 	}
 	
@@ -182,7 +182,7 @@ public class AtoITest {
 		o.setStr("+2147483647");
 		o.atoi();
 		result=o.getInt();
-		assertEquals(o.getInvalidSign(), false);
+		assertFalse(o.getInvalidSign());
 		assertEquals(2147483647, result);
 	}
 

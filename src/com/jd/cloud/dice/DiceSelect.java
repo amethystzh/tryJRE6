@@ -10,31 +10,31 @@ public class DiceSelect {
 
 	public static void main(String[] args) {
 		
-		// ºòÑ¡ÈË
+		// å€™é€‰äºº
 		HashMap<Integer, String> hsCandidate = new HashMap<Integer, String> ();
-		hsCandidate.put(0, "ÂíÄşÄş");
-		hsCandidate.put(1, "µËÊ«ç÷");
-		hsCandidate.put(2, "Íõ¹ğÁÖ");
-		hsCandidate.put(3, "»ÆÉ½");
-		hsCandidate.put(4, "É³âù");
-		hsCandidate.put(5, "ÓÚŞ±");
-		hsCandidate.put(6, "×¯Ìï");
-		hsCandidate.put(7, "ÁúË¼");
-		hsCandidate.put(8, "¸ßÔ­");
-		hsCandidate.put(9, "ÍõË¼ç÷");
-		hsCandidate.put(10, "ÃÏÁÖº£");
-		hsCandidate.put(11, "ÕÅ³¬");
-		hsCandidate.put(12, "ÕÔÑÇ¶«");
+		hsCandidate.put(0, "é©¬å®å®");
+		hsCandidate.put(1, "é‚“è¯—çª");
+		hsCandidate.put(2, "ç‹æ¡‚æ—");
+		hsCandidate.put(3, "é»„å±±");
+		hsCandidate.put(4, "æ²™æ€¡");
+		hsCandidate.put(5, "äºè–‡");
+		hsCandidate.put(6, "åº„ç”°");
+		hsCandidate.put(7, "é¾™æ€");
+		hsCandidate.put(8, "é«˜åŸ");
+		hsCandidate.put(9, "ç‹æ€çª");
+		hsCandidate.put(10, "å­Ÿæ—æµ·");
+		hsCandidate.put(11, "å¼ è¶…");
+		hsCandidate.put(12, "èµµäºšä¸œ");
 		
 		int num = hsCandidate.size();
-		System.out.println("ºòÑ¡ÈË¸öÊı£º"+num);
+		System.out.println("å€™é€‰äººä¸ªæ•°ï¼š"+num);
 		
 		for (Entry<Integer, String> entry: hsCandidate.entrySet() ) {
 			System.out.print(entry.getKey() + entry.getValue() + "  ");
 		}
 		System.out.print("\n\n");
 		
-		// ¸÷×éĞèÒªµÄÈËÊı
+		// å„ç»„éœ€è¦çš„äººæ•°
 		short cbLimit = 7;
 		short wyLimit = 2;
 		short yzLimit = 2;
@@ -45,7 +45,7 @@ public class DiceSelect {
 		ArrayList<String> yz = new ArrayList<String>();
 		ArrayList<String> pc = new ArrayList<String>();
 		
-		// °´ĞòºÅÈ¡Ëæ»ú
+		// æŒ‰åºå·å–éšæœº
 		ArrayList<Integer> randResult = new ArrayList<Integer>(); 
 		Random rand = new Random();
 		while ( randResult.isEmpty() || randResult.size() < hsCandidate.size() ) {
@@ -58,14 +58,14 @@ public class DiceSelect {
 			}
 		}
 		
-		System.out.print("Ëæ»úÅÅÎ»½á¹û£º");
+		System.out.print("éšæœºæ’ä½ç»“æœï¼š");
 		
 		for (int i = 0; i < randResult.size(); i++){
 			System.out.print(randResult.get(i) + " ");
 		}
 		System.out.print("\n\n");
 		
-		// °´Ëæ»ú½á¹ûÒÀ´Î·ÖÅäµ½¸÷×éÖĞ
+		// æŒ‰éšæœºç»“æœä¾æ¬¡åˆ†é…åˆ°å„ç»„ä¸­
 		for (int i=0; i < randResult.size(); i++){
 			int t=randResult.get(i);
 			switch ((i+4)%4){
@@ -89,7 +89,7 @@ public class DiceSelect {
 			}
 		}
 	
-		// Ê£ÓàµÄÈËµÄ´¦Àí
+		// å‰©ä½™çš„äººçš„å¤„ç†
 		for (int i=0; i< randResult.size(); i++){
 			int t=randResult.get(i);
 
@@ -104,16 +104,16 @@ public class DiceSelect {
 			}
 		}
 		
-		System.out.print("³à±ø×é½á¹û£º");
+		System.out.print("èµ¤å…µç»„ç»“æœï¼š");
 		printArrayList(cb);
 		
-		System.out.print("ÍôêÊ×é½á¹û£º");
+		System.out.print("æ±ªæ™”ç»„ç»“æœï¼š");
 		printArrayList(wy);
 		
-		System.out.print("ÓñÖ¥×é½á¹û£º");
+		System.out.print("ç‰èŠç»„ç»“æœï¼š");
 		printArrayList(yz);
 		
-		System.out.print("Åí³©×é½á¹û£º");
+		System.out.print("å½­ç•…ç»„ç»“æœï¼š");
 		printArrayList(pc);
 	}
 	

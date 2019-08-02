@@ -9,27 +9,27 @@ import java.util.Random;
 
 public class DiceSelect2 {
 	
-	// Êı¾İ½á¹¹£º
+	// æ•°æ®ç»“æ„ï¼š
 	
-	// ºòÑ¡ÈËÁĞ±í£ºÃû×Ö£¬ÒÔ¼°ĞÇ¼¶
+	// å€™é€‰äººåˆ—è¡¨ï¼šåå­—ï¼Œä»¥åŠæ˜Ÿçº§
 	private HashMap<String, Integer> candidates = new HashMap<String, Integer>();
 	
-	// ²Î¼Ó·ÖÔßµÄ¸÷Ğ¡×éÃû×Ö£¬ÒÔ¼°¸÷×ÔĞèÒªµÄÈËÊı£¬ÕâÊÇĞèÒª³õÊ¼ÊäÈëÉèÖÃµÄÄÚÈİ
+	// å‚åŠ åˆ†èµƒçš„å„å°ç»„åå­—ï¼Œä»¥åŠå„è‡ªéœ€è¦çš„äººæ•°ï¼Œè¿™æ˜¯éœ€è¦åˆå§‹è¾“å…¥è®¾ç½®çš„å†…å®¹
 	protected HashMap<String, Integer> groupInfo = new HashMap<String, Integer>();
 	
-	// ÏëÏóÓÃÒ»¸ö¼¯ºÏ´æ·Å·ÖÅäµ½¸÷×éµÄÈËÃûÁĞ±íµÄ½á¹û: HashSet<String> nameList = new HashSet<String>();
-	// ÒòÎªÃ»ÓĞ³õÊ¼»¯groupInfoÖ®Ç°²»ÖªµÀ¸÷Ğ¡×éµÄÃû×Ö£¬ËùÒÔÎŞ·¨ÔÚ´ËÉùÃ÷£»¼´¸÷Ğ¡×é¶¼Ó¦¸ÃÓĞÆä¶ÔÓ¦µÄnamelist´æ·Å½á¹û
-	// ËùÒÔĞèÓÃÒ»¸öHashMap´æ·ÅĞ¡×é¶ÔÓ¦µÄ·ÖÅä½á¹û£¬keyÊÇĞ¡×é×éÃû£¬valueÊÇnameList: 
+	// æƒ³è±¡ç”¨ä¸€ä¸ªé›†åˆå­˜æ”¾åˆ†é…åˆ°å„ç»„çš„äººååˆ—è¡¨çš„ç»“æœ: HashSet<String> nameList = new HashSet<String>();
+	// å› ä¸ºæ²¡æœ‰åˆå§‹åŒ–groupInfoä¹‹å‰ä¸çŸ¥é“å„å°ç»„çš„åå­—ï¼Œæ‰€ä»¥æ— æ³•åœ¨æ­¤å£°æ˜ï¼›å³å„å°ç»„éƒ½åº”è¯¥æœ‰å…¶å¯¹åº”çš„namelistå­˜æ”¾ç»“æœ
+	// æ‰€ä»¥éœ€ç”¨ä¸€ä¸ªHashMapå­˜æ”¾å°ç»„å¯¹åº”çš„åˆ†é…ç»“æœï¼Œkeyæ˜¯å°ç»„ç»„åï¼Œvalueæ˜¯nameList: 
 	private HashMap< String, HashSet<String> > randResult
 		= new HashMap< String, HashSet<String> >();
 	
 	int errorCode;
 	
-	// ÎªÁËÄÜÈÃHashSet<String>ÄÜ±»·ÃÎÊ£¬±ØĞëÉùÃ÷ÆäÎªÈ«¾Ö±äÁ¿
-	// µ«ÊÇÓÖÒòÎªÃ»ÓĞ³õÊ¼»¯groupInfoÖ®Ç°²»ÖªµÀÓĞ¶àÉÙ¸öĞ¡×éµÄÊıÄ¿£¬ËùÒÔÖ»ÄÜÉùÃ÷Ò»¸ö¿É±ä³¤¶ÈµÄArrayListÀ´´¢´æHashSet<String>nameList£º
+	// ä¸ºäº†èƒ½è®©HashSet<String>èƒ½è¢«è®¿é—®ï¼Œå¿…é¡»å£°æ˜å…¶ä¸ºå…¨å±€å˜é‡
+	// ä½†æ˜¯åˆå› ä¸ºæ²¡æœ‰åˆå§‹åŒ–groupInfoä¹‹å‰ä¸çŸ¥é“æœ‰å¤šå°‘ä¸ªå°ç»„çš„æ•°ç›®ï¼Œæ‰€ä»¥åªèƒ½å£°æ˜ä¸€ä¸ªå¯å˜é•¿åº¦çš„ArrayListæ¥å‚¨å­˜HashSet<String>nameListï¼š
 //	public ArrayList<HashSet<String>> nameList = new ArrayList<HashSet<String>>();
 	
-	// ÉèÖÃcandidatesÄÚÈİ
+	// è®¾ç½®candidateså†…å®¹
 	public int setCandidates(String name, Integer star) {
 		errorCode = 0;
 		String reg = "[\\u4e00-\\u9fa5]+";
@@ -48,32 +48,32 @@ public class DiceSelect2 {
 		return errorCode;
 	}
 	
-	// Êä³öcandidatesÄÚÈİ
+	// è¾“å‡ºcandidateså†…å®¹
 	public void getCandidates() {
-		System.out.println("ºòÑ¡ÈËÃûµ¥ÁĞ±í£º");
+		System.out.println("å€™é€‰äººåå•åˆ—è¡¨ï¼š");
 		printHM(candidates);
 	}
 	
-	// ÉèÖÃgroupInfoÄÚÈİ
+	// è®¾ç½®groupInfoå†…å®¹
 	public void setGroupInfo(String name, Integer reqs) {
 		groupInfo.put(name, reqs);
 	}
 	
-	// »ñÈ¡groupInfoµÄÏîÊı
+	// è·å–groupInfoçš„é¡¹æ•°
 	public int getGroupNum(HashMap<String, Integer> groupInfo) {
 		return groupInfo.size();
 	}
 	
-	// Êä³ögroupInfoÄÚÈİ
+	// è¾“å‡ºgroupInfoå†…å®¹
 	public void getGroupInfo() {
-		System.out.println("²Î¼Ó³éÇ©µÄ×é±ğºÍĞèÇóÈËÊı£º");
+		System.out.println("å‚åŠ æŠ½ç­¾çš„ç»„åˆ«å’Œéœ€æ±‚äººæ•°ï¼š");
 		printHM(groupInfo);
 	}
 	
-	// ³õÊ¼»¯randResult
+	// åˆå§‹åŒ–randResult
 	public void initRandResult(HashMap<String, Integer> hmGroupInfo/*, ArrayList<HashSet<String>> nameList*/) {
 		
-		// ±éÀúhmGroupInfo£¬»ñÈ¡Æäkey£¬²¢Óënamelist¹¹³ÉrandResult
+		// éå†hmGroupInfoï¼Œè·å–å…¶keyï¼Œå¹¶ä¸namelistæ„æˆrandResult
 		for (Entry<String, Integer>entry : hmGroupInfo.entrySet() ) {
 			
 			HashSet<String> hse = new HashSet<String> (); 
@@ -84,9 +84,9 @@ public class DiceSelect2 {
 		}
 	}
 	
-	// Ö¸¶¨·ÖÅäÈËÔ±
+	// æŒ‡å®šåˆ†é…äººå‘˜
 	public void assignRandResult(String groupName, String candidateName) {
-		// Ê×ÏÈÅĞ¶ÏÊäÈëµÄ×éÃûÊÇ·ñÊôÓÚgroupInfo£¬ºòÑ¡ÈËÃû²»ÓÃÅĞ¶Ï
+		// é¦–å…ˆåˆ¤æ–­è¾“å…¥çš„ç»„åæ˜¯å¦å±äºgroupInfoï¼Œå€™é€‰äººåä¸ç”¨åˆ¤æ–­
 		if ( getGroupNum(groupInfo) < 1 ) {
 			System.out.println("there's no group to assign candidates");
 			return;
@@ -102,20 +102,20 @@ public class DiceSelect2 {
 		}
 	}
 	
-	// ·ÖÅärandResult
+	// åˆ†é…randResult
 	public void setRandResult(HashMap<String, Integer> hmCandidate, HashMap<String, Integer> hmGroupInfo
 			, HashMap<String, HashSet<String>> hmRandResult) {
-		// foreach±éÀúºòÑ¡ÈËÁĞ±í£¬Öğ¸ö¶ÔºòÑ¡ÈË×öËæ»ú·ÖÅä
-		// ¶ÔÃ¿ÂÖ·ÖÅä£¬Ê×ÏÈÍ³¼Æ²Î¼Ó·ÖÅäµÄĞ¡×é£º
-		// Ê×ÏÈÍ­¹ÄrandResult.key¼´×éÃû£¬µÃµ½randResult.value£¬¼´´æ·Å½á¹ûµÄset
-		// È»ºóÈ¡setµÄ´óĞ¡£¬ÔÙÓëgroupInfo.key¶ÔÓ¦µÄvalue±È½Ï£¬ÊÇ·ñĞ¡ÓÚºóÕß£¬ÔòËµÃ÷»¹Î´È¡Âú£¬Ôò¿ÉÒÔ²Î¼Ó´ËÂÖ³éÇ©
-		// Í³¼Æ¹²ÓĞ¼¸¸öĞ¡×é²Î¼Ó³éÇ©£¬È»ºóÈ¡Ğ¡×éµÄ×éÊı×÷ÎªËæ»úÇø¼ä£¬²úÉúËæ»úÖÖ×Ó£¬½øĞĞ³éÇ©
-		// ×îºó½«´Ë´ÎµÄºòÑ¡ÈËÃû×Ö¼ÓÈë³éÖĞĞ¡×éµÄsetÖĞ
+		// foreachéå†å€™é€‰äººåˆ—è¡¨ï¼Œé€ä¸ªå¯¹å€™é€‰äººåšéšæœºåˆ†é…
+		// å¯¹æ¯è½®åˆ†é…ï¼Œé¦–å…ˆç»Ÿè®¡å‚åŠ åˆ†é…çš„å°ç»„ï¼š
+		// é¦–å…ˆé“œé¼“randResult.keyå³ç»„åï¼Œå¾—åˆ°randResult.valueï¼Œå³å­˜æ”¾ç»“æœçš„set
+		// ç„¶åå–setçš„å¤§å°ï¼Œå†ä¸groupInfo.keyå¯¹åº”çš„valueæ¯”è¾ƒï¼Œæ˜¯å¦å°äºåè€…ï¼Œåˆ™è¯´æ˜è¿˜æœªå–æ»¡ï¼Œåˆ™å¯ä»¥å‚åŠ æ­¤è½®æŠ½ç­¾
+		// ç»Ÿè®¡å…±æœ‰å‡ ä¸ªå°ç»„å‚åŠ æŠ½ç­¾ï¼Œç„¶åå–å°ç»„çš„ç»„æ•°ä½œä¸ºéšæœºåŒºé—´ï¼Œäº§ç”Ÿéšæœºç§å­ï¼Œè¿›è¡ŒæŠ½ç­¾
+		// æœ€åå°†æ­¤æ¬¡çš„å€™é€‰äººåå­—åŠ å…¥æŠ½ä¸­å°ç»„çš„setä¸­
 
-		// ´´½¨¸¨ÖúÀàvalidGroup£¬´æ·ÅÃ¿ÂÖ²ÎÓë³éÇ©µÄÓĞÃû¶îµÄĞ¡×éµÄ×éÃû
+		// åˆ›å»ºè¾…åŠ©ç±»validGroupï¼Œå­˜æ”¾æ¯è½®å‚ä¸æŠ½ç­¾çš„æœ‰åé¢çš„å°ç»„çš„ç»„å
 		HashSet<String> validGroup = new HashSet<String>();
 		
-		// ´´½¨¸¨ÖúÀàArrayList candidates£¬´æ·ÅºòÑ¡ÈËÃûµ¥¡£ÒÔ±ãºóÃæÀûÓÃÊı×éµÄÏÂ±êÀ´È¡Ëæ»ú
+		// åˆ›å»ºè¾…åŠ©ç±»ArrayList candidatesï¼Œå­˜æ”¾å€™é€‰äººåå•ã€‚ä»¥ä¾¿åé¢åˆ©ç”¨æ•°ç»„çš„ä¸‹æ ‡æ¥å–éšæœº
 		ArrayList<String> candidates = new ArrayList<String>();
 		for (Entry<String, Integer>entry0 : hmCandidate.entrySet()) {
 			candidates.add(entry0.getKey());
@@ -125,14 +125,14 @@ public class DiceSelect2 {
 		while ( ! candidates.isEmpty() ) {
 			int arrayLength = candidates.size();
 			
-			// Ëæ»úÈ¡ºòÑ¡ÈË£¬ÒÔ±ÜÃâÅÅÔÚºóÃæµÄºòÑ¡ÈËÃ»ÓĞ³éÇ©µÄ»ú»áµÄÎÊÌâ
+			// éšæœºå–å€™é€‰äººï¼Œä»¥é¿å…æ’åœ¨åé¢çš„å€™é€‰äººæ²¡æœ‰æŠ½ç­¾çš„æœºä¼šçš„é—®é¢˜
 			Random rand = new Random();
 			int key = rand.nextInt(arrayLength);
 			String entry0 = candidates.get(key);
 			
 			validGroup.clear();
 			
-			//Ê×ÏÈÒÀ´Î±éÀúrandResultÖĞ¸÷×é¶ÔÓ¦µÄnameList[]£¬È¡nameList[i]µÄ´óĞ¡£¬Óëgroupinfo¡£value¶Ô±È£¬ÅĞ¶ÏÊÇ·ñÒÑ¾­È¡Âú
+			//é¦–å…ˆä¾æ¬¡éå†randResultä¸­å„ç»„å¯¹åº”çš„nameList[]ï¼Œå–nameList[i]çš„å¤§å°ï¼Œä¸groupinfoã€‚valueå¯¹æ¯”ï¼Œåˆ¤æ–­æ˜¯å¦å·²ç»å–æ»¡
 			for (Entry<String, HashSet<String>>entry1 : hmRandResult.entrySet()) {
 				
 				int currentSize;
@@ -146,24 +146,24 @@ public class DiceSelect2 {
 				int targetSize = hmGroupInfo.get(entry1.getKey());
 				
 				if (currentSize < targetSize) {
-					// ´ËĞ¡×é»¹ÓĞÃû¶î£¬Ôò²ÎÓë³éÇ©
+					// æ­¤å°ç»„è¿˜æœ‰åé¢ï¼Œåˆ™å‚ä¸æŠ½ç­¾
 					validGroup.add(entry1.getKey());
 				} 
 				else {
-					// ´ËĞ¡×éÃû¶îÒÑÂú£¬²»²ÎÓë³éÇ©
+					// æ­¤å°ç»„åé¢å·²æ»¡ï¼Œä¸å‚ä¸æŠ½ç­¾
 				}
 			}
-			//ÖÁ´ËµÃµ½ÁË»¹ÓĞÃû¶î¿ÉÒÔ²ÎÓë³éÇ©µÄĞ¡×é×éÃûµÄset£ºvalidGroup
+			//è‡³æ­¤å¾—åˆ°äº†è¿˜æœ‰åé¢å¯ä»¥å‚ä¸æŠ½ç­¾çš„å°ç»„ç»„åçš„setï¼švalidGroup
 			
 			if (validGroup.size()==0) {
-				System.out.println("¸÷×é¾ùÒÑÎŞÃû¶î£¬·ÖÅä½áÊø\n");
+				System.out.println("å„ç»„å‡å·²æ— åé¢ï¼Œåˆ†é…ç»“æŸ\n");
 				return;
 			}
 			else {
 				// go on
 			}
 			
-			// ×ö¸öhashsetµ½String[]µÄ×ª»»
+			// åšä¸ªhashsetåˆ°String[]çš„è½¬æ¢
 			int randNum = validGroup.size();
 			String[] group = new String[randNum];
 			int j=0;
@@ -172,11 +172,11 @@ public class DiceSelect2 {
 				j++;
 			}
 			
-			// È¡Ëæ»ú
+			// å–éšæœº
 			Random rand1 =new Random();
 			int k=rand1.nextInt(randNum);
-			// ËùÒÔÖĞÇ©µÄĞ¡×éÃû¼´Îªgroup[k]
-			// ÔÙ¸ù¾İ×éÃû£¬½«´ËÂÖ³éÇ©µÄÈËÃû´æÈësetÖĞ
+			// æ‰€ä»¥ä¸­ç­¾çš„å°ç»„åå³ä¸ºgroup[k]
+			// å†æ ¹æ®ç»„åï¼Œå°†æ­¤è½®æŠ½ç­¾çš„äººåå­˜å…¥setä¸­
 			hmRandResult.get(group[k]).add(entry0);
 			
 			candidates.remove(key);
@@ -185,7 +185,7 @@ public class DiceSelect2 {
 		
 	}
 	
-	// »ñÈ¡²¢Êä³ö·ÖÅä½á¹û
+	// è·å–å¹¶è¾“å‡ºåˆ†é…ç»“æœ
 	public void getRandResult(HashMap<String, HashSet<String>>hmRandResult) {
 		
 		for ( Entry<String, HashSet<String>>entry : hmRandResult.entrySet() ) {
@@ -220,45 +220,45 @@ public class DiceSelect2 {
 		
 		DiceSelect2 ds = new DiceSelect2();
 		
-		// ³õÊ¼»¯ºòÑ¡ÈËĞÅÏ¢
-//		ds.setCandidates("ÂíÄşÄş", 5);
-		ds.setCandidates("µËÊ«ç÷", 4);
-		ds.setCandidates("Íõ¹ğÁÖ", 4);
-		ds.setCandidates("»ÆÉ½", 4);
-		ds.setCandidates("É³âù", 4);
-//		ds.setCandidates("ÓÚŞ±", 4);
-//		ds.setCandidates("×¯Ìï", 4);
-		ds.setCandidates("ÁúË¼", 4);
-		ds.setCandidates("¸ßÔ­", 4);
-//		ds.setCandidates("ÍõË¼ç÷", 3);
-//		ds.setCandidates("ÃÏÁÖº£", 3);
-		ds.setCandidates("ÕÅ³¬", 3);
-		ds.setCandidates("ÕÔÑÇ¶«", 3);
+		// åˆå§‹åŒ–å€™é€‰äººä¿¡æ¯
+//		ds.setCandidates("é©¬å®å®", 5);
+		ds.setCandidates("é‚“è¯—çª", 4);
+		ds.setCandidates("ç‹æ¡‚æ—", 4);
+		ds.setCandidates("é»„å±±", 4);
+		ds.setCandidates("æ²™æ€¡", 4);
+//		ds.setCandidates("äºè–‡", 4);
+//		ds.setCandidates("åº„ç”°", 4);
+		ds.setCandidates("é¾™æ€", 4);
+		ds.setCandidates("é«˜åŸ", 4);
+//		ds.setCandidates("ç‹æ€çª", 3);
+//		ds.setCandidates("å­Ÿæ—æµ·", 3);
+		ds.setCandidates("å¼ è¶…", 3);
+		ds.setCandidates("èµµäºšä¸œ", 3);
 		
 		ds.getCandidates();
 	
-		// ³õÊ¼»¯Ğ¡×éĞÅÏ¢
-		ds.setGroupInfo("³à±ø", 7 );
-		ds.setGroupInfo("ÍôêÊ", 2 );
-		ds.setGroupInfo("ÓñÖ¥", 2 );
-		ds.setGroupInfo("Åí³©", 2 );
+		// åˆå§‹åŒ–å°ç»„ä¿¡æ¯
+		ds.setGroupInfo("èµ¤å…µ", 7 );
+		ds.setGroupInfo("æ±ªæ™”", 2 );
+		ds.setGroupInfo("ç‰èŠ", 2 );
+		ds.setGroupInfo("å½­ç•…", 2 );
 		
 		ds.getGroupInfo();
 		
-		// ³õÊ¼»¯´æ·Å½á¹ûµÄrandResult
+		// åˆå§‹åŒ–å­˜æ”¾ç»“æœçš„randResult
 		ds.initRandResult(ds.groupInfo/*, ds.nameList*/);
 		
-		// ÒÑ¾­Ô¤¶¨ÁËµÄÈËÔ±
-		ds.assignRandResult("³à±ø", "ÂíÄşÄş");
-		ds.assignRandResult("Åí³©", "ÃÏÁÖº£");
-		ds.assignRandResult("ÓñÖ¥", "ÍõË¼ç÷");
-		ds.assignRandResult("ÍôêÊ", "ÓÚŞ±");
-		ds.assignRandResult("ÍôêÊ", "×¯Ìï");
+		// å·²ç»é¢„å®šäº†çš„äººå‘˜
+		ds.assignRandResult("èµ¤å…µ", "é©¬å®å®");
+		ds.assignRandResult("å½­ç•…", "å­Ÿæ—æµ·");
+		ds.assignRandResult("ç‰èŠ", "ç‹æ€çª");
+		ds.assignRandResult("æ±ªæ™”", "äºè–‡");
+		ds.assignRandResult("æ±ªæ™”", "åº„ç”°");
 		
-		// µ÷ÓÃ·ÖÅäº¯Êı
+		// è°ƒç”¨åˆ†é…å‡½æ•°
 		ds.setRandResult(ds.candidates, ds.groupInfo, ds.randResult);
 		
-		// »ñµÃ·ÖÅä½á¹û
+		// è·å¾—åˆ†é…ç»“æœ
 		ds.getRandResult(ds.randResult);
 
 	}

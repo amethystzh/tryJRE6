@@ -38,14 +38,14 @@ public class DiceSelect2Test {
 	
 	@Test
 	public void testSetCandidates1() {
-		assertEquals(0, ds.setCandidates("ÕÅÈı",5));
+		assertEquals(0, ds.setCandidates("å¼ ä¸‰",5));
 		log.info("1st TC");
 	}
 	
 //	@Ignore
 	@Test
 	public void testSetCandidates2() {
-		assertEquals(0, ds.setCandidates("ÀîËÄ",3));
+		assertEquals(0, ds.setCandidates("æå››",3));
 		log.info("2nd TC");
 	}
 	
@@ -57,7 +57,7 @@ public class DiceSelect2Test {
 	
 	@Test
 	public void testSetCandidates4() {
-		assertEquals(-2, ds.setCandidates("ÕÅÈı", -1));
+		assertEquals(-2, ds.setCandidates("å¼ ä¸‰", -1));
 		log.info("4th TC");
 	}
 
@@ -65,8 +65,8 @@ public class DiceSelect2Test {
 	@Test
 	public void testSetCandidates() {
 		
-		assertEquals(0, ds.setCandidates("ÕÅÈı",5));
-		assertEquals(0, ds.setCandidates("ÀîËÄ",1));
+		assertEquals(0, ds.setCandidates("å¼ ä¸‰",5));
+		assertEquals(0, ds.setCandidates("æå››",1));
 		
 		assertEquals(-1, ds.setCandidates(null, 1));
 		assertEquals(-1, ds.setCandidates("", 2));
@@ -74,12 +74,12 @@ public class DiceSelect2Test {
 		assertEquals(-1, ds.setCandidates("123", 1));
 		assertEquals(-1, ds.setCandidates("wang", 1));
 		assertEquals(-1, ds.setCandidates("~!@#$", 1));
-		assertEquals(-1, ds.setCandidates("ÕÅ3", 1));
+		assertEquals(-1, ds.setCandidates("å¼ 3", 1));
 		
-		assertEquals(-2, ds.setCandidates("ÕÅÈı", -1));
-		assertEquals(-2, ds.setCandidates("ÕÅÈı", -0));
-		assertEquals(-2, ds.setCandidates("ÕÅÈı", 6));
-		assertEquals(-2, ds.setCandidates("ÕÅÈı", 2147483647));
+		assertEquals(-2, ds.setCandidates("å¼ ä¸‰", -1));
+		assertEquals(-2, ds.setCandidates("å¼ ä¸‰", -0));
+		assertEquals(-2, ds.setCandidates("å¼ ä¸‰", 6));
+		assertEquals(-2, ds.setCandidates("å¼ ä¸‰", 2147483647));
 
 		assertEquals(-1, ds.setCandidates(null, null));
 		

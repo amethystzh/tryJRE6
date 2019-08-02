@@ -28,21 +28,21 @@ public class DiceSelect2TestParameterized {
 	
 	private int returnCode;
 
-    //¹¹Ôìº¯Êı£¬¶Ô±äÁ¿½øĞĞ³õÊ¼»¯
+    //æ„é€ å‡½æ•°ï¼Œå¯¹å˜é‡è¿›è¡Œåˆå§‹åŒ–
     public DiceSelect2TestParameterized(String name, int star, int result) {
         this.name = name;
         this.star = star;
         this.result = result;
     }
         
-    // ²ÎÊı»¯Êı¾İ 
+    // å‚æ•°åŒ–æ•°æ® 
     @Parameters(name = "TestCase{index}: {0},{1}: {2}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-        		{"ÕÅÈı",5, 0},
-        		{"ÀîËÄ",3, 0},
+        		{"å¼ ä¸‰",5, 0},
+        		{"æå››",3, 0},
         		{null, 1, -1},
-        		{"ÕÅÈı", -1, -2}
+        		{"å¼ ä¸‰", -1, -2}
         });
     }
     

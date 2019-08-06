@@ -13,15 +13,14 @@ import org.apache.log4j.*;
 @RunWith(Feeder.class) 
 public class DiceSelect2TestDatafeed {
 	
-	public Logger log = Logger.getLogger(DiceSelect2TestDatafeed.class);
+	private Logger log = Logger.getLogger(DiceSelect2TestDatafeed.class);
 
-	DiceSelect2 ds = new DiceSelect2();	
+	private DiceSelect2 ds = new DiceSelect2();
 	
 	public boolean checkResult(int returnCode) {
 		boolean checkResult = true;
         if (returnCode==0){
-        	checkResult = true;
-        	log.info("pass");
+			log.info("pass");
         }
         else{
         	checkResult = false;
@@ -30,13 +29,9 @@ public class DiceSelect2TestDatafeed {
 		return checkResult;
 	}
 
-
 	@Test
 	@Source("./data/test.xls")
 	public void testSetCandidates(int expect, String name, Integer star) {
-		
-
-		
 //		log.setLevel(Level.INFO);
 		log.info("expect: "+expect+", name: "+name+", star: "+star);
 		

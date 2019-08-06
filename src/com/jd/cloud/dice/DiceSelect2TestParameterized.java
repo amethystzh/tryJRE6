@@ -25,10 +25,8 @@ public class DiceSelect2TestParameterized {
 	private String name;
 	private int star;
 	private int result;
-	
-	private int returnCode;
 
-    //构造函数，对变量进行初始化
+	//构造函数，对变量进行初始化
     public DiceSelect2TestParameterized(String name, int star, int result) {
         this.name = name;
         this.star = star;
@@ -47,31 +45,31 @@ public class DiceSelect2TestParameterized {
     }
     
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUpBeforeClass() {
 		log.info("TestSet Begins========");
 	}
 
 	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	public static void tearDownAfterClass() {
 		log.info("TestSet Ends==========");
 	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		log.info("Test Begins-----------");
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 		log.info("Test Ends-------------");
 	}
 
     @Test   
     public void testSetCandidates() {
-        returnCode = ds.setCandidates(name, star);
+		int returnCode = ds.setCandidates(name, star);
         assertEquals(result, returnCode);
         
-        if (returnCode==0){
+        if (returnCode ==0){
         	log.info("pass");
         }
         else{

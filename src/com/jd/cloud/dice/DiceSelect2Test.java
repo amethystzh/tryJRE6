@@ -17,22 +17,22 @@ public class DiceSelect2Test {
 	private static Logger log = Logger.getLogger(DiceSelect2Test.class);
 
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUpBeforeClass() {
 		log.info("TestSet Begins========");
 	}
 
 	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+	public static void tearDownAfterClass() {
 		log.info("TestSet Ends==========");
 	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		log.info("Test Begins-----------");
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 		log.info("Test Ends-------------");
 	}
 	
@@ -42,7 +42,7 @@ public class DiceSelect2Test {
 		log.info("1st TC");
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void testSetCandidates2() {
 		assertEquals(0, ds.setCandidates("李四",3));

@@ -11,7 +11,7 @@ public class DiceSelect {
 	public static void main(String[] args) {
 		
 		// 候选人
-		HashMap<Integer, String> hsCandidate = new HashMap<Integer, String> ();
+		HashMap<Integer, String> hsCandidate = new HashMap<>();
 		hsCandidate.put(0, "马宁宁");
 		hsCandidate.put(1, "邓诗琪");
 		hsCandidate.put(2, "王桂林");
@@ -40,28 +40,25 @@ public class DiceSelect {
 		short yzLimit = 2;
 		short pcLimit = 2;
 		
-		ArrayList<String> cb = new ArrayList<String>();
-		ArrayList<String> wy = new ArrayList<String>();
-		ArrayList<String> yz = new ArrayList<String>();
-		ArrayList<String> pc = new ArrayList<String>();
+		ArrayList<String> cb = new ArrayList<>();
+		ArrayList<String> wy = new ArrayList<>();
+		ArrayList<String> yz = new ArrayList<>();
+		ArrayList<String> pc = new ArrayList<>();
 		
 		// 按序号取随机
-		ArrayList<Integer> randResult = new ArrayList<Integer>(); 
+		ArrayList<Integer> randResult = new ArrayList<>();
 		Random rand = new Random();
 		while ( randResult.isEmpty() || randResult.size() < hsCandidate.size() ) {
 			int thisRound = rand.nextInt(num);
-			if (randResult.contains(thisRound)) {
-				
-			}
-			else {
+			if (!randResult.contains(thisRound)) {
 				randResult.add(thisRound);
 			}
 		}
 		
 		System.out.print("随机排位结果：");
-		
-		for (int i = 0; i < randResult.size(); i++){
-			System.out.print(randResult.get(i) + " ");
+
+		for (Integer integer : randResult) {
+			System.out.print(integer + " ");
 		}
 		System.out.print("\n\n");
 		
@@ -90,18 +87,13 @@ public class DiceSelect {
 		}
 	
 		// 剩余的人的处理
-		for (int i=0; i< randResult.size(); i++){
-			int t=randResult.get(i);
-
-			if ( wy.contains(hsCandidate.get(t)) || yz.contains(hsCandidate.get(t)) 
-					|| pc.contains(hsCandidate.get(t)) || cb.contains(hsCandidate.get(t)) ) {
-				continue;
-			}
-			else {
-				if (cb.size() <= cbLimit){
-					cb.add(hsCandidate.get(t));
-				}
-			}
+		for (int t : randResult) {
+			if (!wy.contains(hsCandidate.get(t)) && !yz.contains(hsCandidate.get(t))
+					&& !pc.contains(hsCandidate.get(t)) && !cb.contains(hsCandidate.get(t))) {
+						if (cb.size() <= cbLimit) {
+							cb.add(hsCandidate.get(t));
+						}
+					}
 		}
 		
 		System.out.print("赤兵组结果：");
@@ -117,9 +109,9 @@ public class DiceSelect {
 		printArrayList(pc);
 	}
 	
-	static public void printArrayList(ArrayList<String> al){
-		for (int i = 0 ; i < al.size(); i++ ) {
-			System.out.print(al.get(i) + " ");
+	private static void printArrayList(ArrayList<String> al){
+		for (String s : al) {
+			System.out.print(s + " ");
 		}
 		System.out.print("\n");
 	}

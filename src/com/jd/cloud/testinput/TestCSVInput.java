@@ -5,21 +5,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 import org.apache.log4j.*;
 
 public class TestCSVInput {
 	
-	static public Logger log =  Logger.getLogger(TestCSVInput.class);
+	private static Logger log =  Logger.getLogger(TestCSVInput.class);
 	
-	String sPath = System.getProperty("user.dir");
+	private String sPath = System.getProperty("user.dir");
 	
 	private static TestCSVInput mInstance;
 
 	private ArrayList<String[]> mTestCSVInput;
 
 	private TestCSVInput() {
-		mTestCSVInput = new ArrayList< String[] >();
+		mTestCSVInput = new ArrayList<>();
 	}
 
 	public static TestCSVInput getInstance() {
@@ -33,28 +32,26 @@ public class TestCSVInput {
 		return mTestCSVInput.get(i);
 	}
 	
-	public void printInputFile(){
+	private void printInputFile(){
 		StringBuffer sbt = new StringBuffer();
 		log.info("========================================");
-		for (int i = 0; i<mTestCSVInput.size(); i++){
-			sbt.setLength(0);
-			String[] array = mTestCSVInput.get(i);
-			int arraySize = array.length;
+        for (String[] strings : mTestCSVInput) {
+            sbt.setLength(0);
 
-			for ( int j = 0; j<arraySize; j++) {
-				sbt = sbt.append(array[j]+" ");
-			}
-			log.info(sbt);
-		}
+            for (String s : strings) {
+                sbt.append(s).append(" ");
+            }
+            log.info(sbt);
+        }
 	}
 	
-	public boolean loadTestInput() {
+	private boolean loadTestInput() {
 		boolean isSuccess = true;
 		String filePath = sPath + "\\Data\\test_input.csv";
 		try {
 			FileReader filereader = new FileReader(filePath);
 			BufferedReader br = new BufferedReader(filereader);
-			String temp = null;
+			String temp;
 			int argNum = 0;
 			temp = br.readLine();
 			while (temp != null) {
@@ -89,13 +86,18 @@ public class TestCSVInput {
 		return isSuccess;
 	}
 	
-	public void testFunc(String name, char gender, int age, String mobile, String address){
+	private void testFunc(String name, char gender, int age, String mobile, String address, int expect_code, Boolean expect_msg){
 		log.info("Name: "+name+", Gender: "+gender+", Age: "+age+", Mobile: "+mobile+", Address: "+address);
+		if (expect_code == 0) {
+			log.info("test passed: " + expect_msg);
+		}
+		else {
+			log.error("test failed: " + expect_msg);
+		}
 	}
 	
-	public int exampleTestFunc(ArrayList<String[]> args) {
-		int returnCode = 0;
-		
+	private void exampleTestFunc(ArrayList<String[]> args) {
+
 		log.info("===============================================");
 		
 		for ( int i = 1; i < args.size(); i++ ){
@@ -107,15 +109,14 @@ public class TestCSVInput {
 			int age = Integer.parseInt(ins[2]);
 			String mobile = ins[3];
 			String address = ins[4];
-			
-			
-			testFunc(name, gender, age, mobile, address);
+			int expect_code = Integer.parseInt(ins[5]);
+			Boolean expect_msg = Boolean.parseBoolean(ins[6]);
+
+			testFunc(name, gender, age, mobile, address, expect_code, expect_msg);
 			
 		}
-		
-		
-		return returnCode;
-	}
+
+    }
 	
 
 	public static void main(String[] args) {

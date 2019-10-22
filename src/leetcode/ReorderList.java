@@ -27,9 +27,9 @@ public class ReorderList {
     		return head;
     	}
     	
-    	ArrayList <Integer> ali = new ArrayList<Integer>();
+    	ArrayList <Integer> ali = new ArrayList<>();
     	ListNode currentNode = head;
-    	ListNode temp = null;
+    	ListNode temp;
     	while ( currentNode.next != null ) {
     		ali.add(currentNode.val);
     		temp = currentNode.next;
@@ -51,7 +51,7 @@ public class ReorderList {
 
     }
     
-    public static void reorderList(ListNode head) {
+    private static void reorderList(ListNode head) {
     	
     	if (head == null || head.next == null || head.next.next==null ) { // list with 0, 1, 2 node all return as it is
     		return;
@@ -84,9 +84,9 @@ public class ReorderList {
     			temp = pos.next;
 //    			System.out.println("4: pos="+pos.val+", pos.next="+pos.next.val+", beforeTail="+beforeTail.val+", beforeTail.next=null, temp="+temp.val);
     		}
-    		else {
+//    		else {
 //    			System.out.println("4: pos.next=null");
-    		}
+//    		}
     		
     		
     		
@@ -140,7 +140,7 @@ public class ReorderList {
         
     }
     
-    public static ListNode getBeforeTailNode(ListNode head) {
+    private static ListNode getBeforeTailNode(ListNode head) {
     	
     	if (head == null || head.next == null) return null;
     	
@@ -157,7 +157,7 @@ public class ReorderList {
     private static ListNode buildListNode(int[] array) {
     	ListNode head = null;
     	ListNode tail = null;
-    	ListNode newNode = null;
+    	ListNode newNode;
     	
     	if ( array == null || array.length == 0 ) {
     		return head;
@@ -182,7 +182,7 @@ public class ReorderList {
     
     private static void printListNode(ListNode head) {
     	ListNode currentNode = head;
-    	ListNode temp = null;
+    	ListNode temp;
     	
     	if ( currentNode == null ) {
     		System.out.println("null");

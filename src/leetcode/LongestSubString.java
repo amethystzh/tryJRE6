@@ -1,21 +1,29 @@
+/** @file
+ * @brief this is file description
+ * @author AmethystZh
+ * @date 2019-10-22
+ * @version 1.1
+ * @note this is JAVADOC format comments for doxygen usage
+ */
 package leetcode;
 
 import java.util.HashSet;
 
-// 3. Longest Substring Without Repeating Characters
-//
-//Given a string, find the length of the longest substring without repeating characters.
-//
-//Examples:
-//
-//Given "abcabcbb", the answer is "abc", which the length is 3.
-//
-//Given "bbbbb", the answer is "b", with the length of 1.
-//
-//Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
-
+/**
+ * get the longest sub-string without repeating characters.
+ * given a string, find the length of the longest substring without repeating characters.
+ * Examples:
+ * 1. Given "abcabcbb", the answer is "abc", which the length is 3.
+ * 2. Given "bbbbb", the answer is "b", with the length of 1.
+ * 3. Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+ */
 public class LongestSubString {
-	
+
+	/**
+	 * this is the original implement, now is abandoned
+	 * @param s the input string
+	 * @return the location of the result sub-string
+	 */
 	public static int lengthOfLongestSubstring1(String s) {
 		
 		if ( s==null || s.isEmpty() ) {
@@ -46,8 +54,12 @@ public class LongestSubString {
 		}
         return result;
     }
-	
-	
+
+	/**
+	 * this is the method now been used
+	 * @param s the input string
+	 * @return the location of sub-string where it is find
+	 */
 	public static int lengthOfLongestSubstring(String s) {
 		
 		if ( s==null || s.isEmpty() ) {
@@ -81,6 +93,10 @@ public class LongestSubString {
 		return result;
 	}
 
+	/**
+	 * the main function, we put the test here
+	 * @param args this is the java main function default arguments
+	 */
 	public static void main(String[] args) {
 		
 		String s1 = "abcabcbb";
